@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/professor.css">
+    <title>Portal do Professor - Controle Acadêmico</title>
+</head>
+<body>
+    <header>
+        <div class="logo">Portal do Professor</div>
+        <div class="user-info">
+            <span>Prof. Debora Viana</span>
+            <div class="user-avatar">DV</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <aside class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="active">
+                        <i class="fas fa-home"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="logout.html">
+                        <i class="fas fa-sign-out-alt"></i> Sair
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="main-content">
+            <div class="welcome-banner">
+                <h1>Bem-vindo, Professa Debora!</h1>
+                <p>Controle de turmas, atividades e acompanhamento dos alunos</p>
+            </div>
+
+            <div class="dashboard">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Turma - Metodo De Pesquisa TDS-3</h3>
+                        <span class="badge badge-primary">25 alunos</span>
+                    </div>
+                    
+                    <div class="student-item">
+                        <div class="student-info">
+                            <strong>Ana Oliveira</strong>
+                            <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
+                                <small>Faltas: <span class="faltas-count">2</span></small>
+                                <small>Média: <span class="media-value">8.5</span></small>
+                            </div>
+                        </div>
+                        <div class="student-actions">
+                            <button class="btn btn-sm btn-warning btn-add-falta">+ Falta</button>
+                            <button class="btn btn-sm btn-primary btn-add-nota">Nota</button>
+                            <button class="btn btn-sm btn-success btn-add-obs">Obs</button>
+                        </div>
+                    </div>
+                    
+                    <div class="student-item">
+                        <div class="student-info">
+                            <strong>Bruno Costa</strong>
+                            <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
+                                <small>Faltas: <span class="faltas-count">5</span></small>
+                                <small>Média: <span class="media-value">6.2</span></small>
+                            </div>
+                        </div>
+                        <div class="student-actions">
+                            <button class="btn btn-sm btn-warning btn-add-falta">+ Falta</button>
+                            <button class="btn btn-sm btn-primary btn-add-nota">Nota</button>
+                            <button class="btn btn-sm btn-success btn-add-obs">Obs</button>
+                        </div>
+                    </div>
+                    
+                    <div class="student-item">
+                        <div class="student-info">
+                            <strong>Debora Viana</strong>
+                            <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
+                                <small>Faltas: <span class="faltas-count">1</span></small>
+                                <small>Média: <span class="media-value">9.0</span></small>
+                            </div>
+                        </div>
+                        <div class="student-actions">
+                            <button class="btn btn-sm btn-warning btn-add-falta">+ Falta</button>
+                            <button class="btn btn-sm btn-primary btn-add-nota">Nota</button>
+                            <button class="btn btn-sm btn-success btn-add-obs">Obs</button>
+                        </div>
+                    </div>
+                        <button class="btn btn-primary">Ver todos os alunos</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Atividades Pendentes</h3>
+                        <span class="badge badge-danger">3 atividades</span>
+                    </div>
+                    <div class="student-item">
+                        <div class="student-info">
+                            <strong>Correção de Prova - 9ºA</strong>
+                            <small>Prazo: 15/05/2023</small>
+                        </div>
+                        <button class="btn btn-sm btn-primary iniciar-btn">Iniciar</button>
+                    </div>
+                    <div class="student-item">
+                        <div class="student-info">
+                            <strong>Plano de Aula - Abril</strong>
+                            <small>Prazo: 10/04/2023</small>
+                        </div>
+                        <button class="btn btn-sm btn-primary editar-btn">Editar</button>
+                    </div>
+                    <div class="student-item">
+                        <div class="student-info">
+                            <strong>Relatório de Frequência</strong>
+                            <small>Prazo: 05/04/2023</small>
+                        </div>
+                        <button class="btn btn-sm btn-primary enviar-btn">Enviar</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Modal para Adicionar Falta -->
+    <div class="modal" id="faltaModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Registrar Falta</h3>
+            <button class="close-modal">&times;</button>
+          </div>
+          <form id="faltaForm">
+            <div class="form-group">
+              <label class="form-label">Aluno</label>
+              <input type="text" class="form-control" id="faltaAluno" readonly>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Data da Falta</label>
+              <input type="date" class="form-control" id="faltaData" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Justificativa</label>
+              <select class="form-control" id="faltaJustificativa">
+                <option value="N">Não Justificada</option>
+                <option value="J">Justificada</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Observações</label>
+              <textarea class="form-control" id="faltaObservacoes" rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger close-modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Registrar Falta</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="notaModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Lançar Nota</h3>
+            <button class="close-modal">&times;</button>
+          </div>
+          <form id="notaForm">
+            <div class="form-group">
+              <label class="form-label">Aluno</label>
+              <input type="text" class="form-control" id="notaAluno" readonly>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Avaliação</label>
+              <select class="form-control" id="notaAvaliacao" required>
+                <option value="N1">1ª Avaliação (N1)</option>
+                <option value="N2">2ª Avaliação (N2)</option>
+                <option value="N3">3ª Avaliação (N3)</option>
+                <option value="NT">Trabalho</option>
+                <option value="NP">Projeto</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Nota (0 a 10)</label>
+              <input type="number" class="form-control" id="notaValor" min="0" max="10" step="0.1" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Data</label>
+              <input type="date" class="form-control" id="notaData" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Observações</label>
+              <textarea class="form-control" id="notaObservacoes" rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger close-modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Lançar Nota</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal" id="obsModal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Adicionar Observação</h3>
+            <button class="close-modal">&times;</button>
+          </div>
+          <form id="obsForm">
+            <div class="form-group">
+              <label class="form-label">Aluno</label>
+              <input type="text" class="form-control" id="obsAluno" readonly>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tipo</label>
+              <select class="form-control" id="obsTipo">
+                <option value="comportamento">Comportamento</option>
+                <option value="desempenho">Desempenho</option>
+                <option value="outro">Outro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Data</label>
+              <input type="date" class="form-control" id="obsData" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Observação</label>
+              <textarea class="form-control" id="obsTexto" rows="4" required></textarea>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger close-modal">Cancelar</button>
+              <button type="submit" class="btn btn-success">Salvar Observação</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+<script src="../portal/professor.js"></script>
+</body>
+</html>

@@ -1,0 +1,263 @@
+:root {
+    --primary: #2c3e50;
+    --secondary: #834ce9;
+    --accent: #e74c3c;
+    --success: #2ecc71;
+    --text: #2c3e50;
+    --text-light: #fff;
+    --radius: 12px;
+    --shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f9f9f9;
+    color: var(--text);
+  }
+  
+  header {
+    background: var(--primary);
+    color: var(--text-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .user-avatar {
+    background: var(--secondary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .sidebar {
+    background: var(--primary);
+    color: white;
+    padding: 1.5rem;
+    width: 250px;
+  }
+  
+  .nav-menu {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .nav-item a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: white;
+    text-decoration: none;
+    padding: 0.8rem 1rem;
+    border-radius: var(--radius);
+    transition: background 0.3s;
+  }
+  
+  .nav-item a:hover,
+  .nav-item a.active {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 2rem;
+  }
+  
+  .card {
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+  }
+  
+  .badge {
+    padding: 0.3rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: white;
+  }
+  
+  .badge-primary { background: var(--secondary); }
+  .badge-success { background: var(--success); }
+  .badge-danger { background: var(--accent); }
+  
+  .student-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+    border-top: 1px solid #eee;
+  }
+  
+  .student-actions button {
+    margin-left: 0.5rem;
+  }
+  
+  .btn {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: var(--radius);
+    color: white;
+    cursor: pointer;
+  }
+  
+  .btn-primary { background: var(--secondary); }
+  .btn-success { background: var(--success); }
+  .btn-danger { background: var(--accent); }
+  .btn-warning { background: #f39c12; }
+  
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  .modal-content {
+    background: #fff;
+    width: 95%;
+    max-width: 500px;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    animation: slideIn 0.3s ease-out;
+  }
+  
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+  }
+  
+  .modal-title {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary);
+  }
+  
+  .close-modal {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
+    color: var(--accent);
+    transition: transform 0.2s;
+  }
+  .close-modal:hover {
+    transform: scale(1.2);
+  }
+  
+  .form-group {
+    margin-bottom: 1rem;
+  }
+  
+  .form-label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: #444;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 0.6rem;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    transition: border-color 0.3s;
+  }
+  
+  .form-control:focus {
+    border-color: var(--secondary);
+    outline: none;
+  }
+  
+  textarea.form-control {
+    resize: vertical;
+  }
+  
+  .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  .progress-container {
+    width: 100%;
+    background-color: #f1f1f1;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+  }
+  
+  .progress-bar {
+    height: 100%;
+    background-color: #28a745;
+    width: 0%;
+    transition: width 0.5s ease;
+  }
+  
+  .badge {
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+  
+  .badge-success {
+    background-color: #28a745;
+    color: #fff;
+  }
+
+  .hidden {
+    display: none;
+}
