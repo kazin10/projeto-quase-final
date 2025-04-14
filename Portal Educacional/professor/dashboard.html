@@ -1,237 +1,524 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/professor.css">
-    <title>Portal do Professor - Controle Acadêmico</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal do Professor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <div class="logo">Portal do Professor</div>
         <div class="user-info">
-            <span>Prof. Debora Viana</span>
-            <div class="user-avatar">DV</div>
+            <span>Prof. Carlos Silva</span>
+            <div class="user-avatar">CS</div> 
         </div>
     </header>
-
+    
     <div class="container">
         <aside class="sidebar">
             <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="dashboard.html" class="active">
-                        <i class="fas fa-home"></i> Dashboard
-                    </a>
+                <li class="nav-item active" onclick="showSection('dashboard')">
+                    <i class="fas fa-home"></i> Dashboard
+                </li>
+                <li class="nav-item" onclick="showSection('turmas')">
+                    <i class="fas fa-users"></i> Minhas Turmas
+                </li>
+                <li class="nav-item" onclick="showSection('notas')">
+                    <i class="fas fa-clipboard-list"></i> Lançar Notas
+                </li>
+                <li class="nav-item" onclick="showSection('frequencia')">
+                    <i class="fas fa-calendar-check"></i> Registrar Frequência
+                </li>
+                <li class="nav-item" onclick="showSection('observacoes')">
+                    <i class="fas fa-comment-alt"></i> Observações
                 </li>
                 <li class="nav-item">
-                    <a href="logout.html">
-                        <i class="fas fa-sign-out-alt"></i> Sair
-                    </a>
+                    <i class="fas fa-sign-out-alt"></i> Sair
                 </li>
             </ul>
         </aside>
-
+        
         <main class="main-content">
-            <div class="welcome-banner">
-                <h1>Bem-vindo, Professa Debora!</h1>
-                <p>Controle de turmas, atividades e acompanhamento dos alunos</p>
-            </div>
-
-            <div class="dashboard">
-                <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Turma - Metodo De Pesquisa TDS-3</h3>
-                        <span class="badge badge-primary">25 alunos</span>
+            <!-- Seção Dashboard -->
+            <div id="dashboard-section" class="content-section">
+                <div class="welcome-banner">
+                    <h1>Bem-vindo, Professor Carlos!</h1>
+                    <p>Gerencie as informações acadêmicas dos seus alunos</p>
+                </div>
+                
+                <div class="cards-container">
+                    <!-- Card de Turmas -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Minhas Turmas</h2>
+                            <span class="badge badge-success">3 ativas</span>
+                        </div>
+                        <ul style="list-style: none;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>PDM - 3º Ano</strong>
+                                <p>30 alunos matriculados</p>
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Banco de Dados - 2º Ano</strong>
+                                <p>25 alunos matriculados</p>
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <strong>Métodos de Pesquisa - 4º Ano</strong>
+                                <p>20 alunos matriculados</p>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;" onclick="showSection('turmas')">
+                            Ver Todas as Turmas
+                        </button>
                     </div>
                     
-                    <div class="student-item">
-                        <div class="student-info">
-                            <strong>Ana Oliveira</strong>
-                            <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
-                                <small>Faltas: <span class="faltas-count">2</span></small>
-                                <small>Média: <span class="media-value">8.5</span></small>
-                            </div>
+                    <!-- Card de Atividades Pendentes -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Atividades Pendentes</h2>
+                            <span class="badge badge-warning">5 para corrigir</span>
                         </div>
-                        <div class="student-actions">
-                            <button class="btn btn-sm btn-warning btn-add-falta">+ Falta</button>
-                            <button class="btn btn-sm btn-primary btn-add-nota">Nota</button>
-                            <button class="btn btn-sm btn-success btn-add-obs">Obs</button>
+                        <ul style="list-style: none;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Trabalho PDM - 3º Ano</strong>
+                                <p>15/20 entregues</p>
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Prova Banco de Dados - 2º Ano</strong>
+                                <p>10/25 entregues</p>
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <strong>Seminário Métodos - 4º Ano</strong>
+                                <p>5/20 entregues</p>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;">
+                            Corrigir Atividades
+                        </button>
+                    </div>
+                    
+                    <!-- Card de Avisos -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Avisos Recentes</h2>
+                        </div>
+                        <div style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                            <strong>Reunião Pedagógica</strong>
+                            <p>Dia 20/11 às 14h na sala dos professores</p>
+                            <small style="color: #64748b;">Postado em: 10/11/2023</small>
+                        </div>
+                        <div style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                            <strong>Entrega de Diários</strong>
+                            <p>Prazo final para entrega: 25/11/2023</p>
+                            <small style="color: #64748b;">Postado em: 05/11/2023</small>
+                        </div>
+                        <div style="padding: 0.5rem 0;">
+                            <strong>Capacitação Docente</strong>
+                            <p>Inscrições abertas para curso de atualização</p>
+                            <small style="color: #64748b;">Postado em: 01/11/2023</small>
                         </div>
                     </div>
                     
-                    <div class="student-item">
-                        <div class="student-info">
-                            <strong>Bruno Costa</strong>
-                            <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
-                                <small>Faltas: <span class="faltas-count">5</span></small>
-                                <small>Média: <span class="media-value">6.2</span></small>
-                            </div>
+                    <!-- Card de Ações Rápidas -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Ações Rápidas</h2>
                         </div>
-                        <div class="student-actions">
-                            <button class="btn btn-sm btn-warning btn-add-falta">+ Falta</button>
-                            <button class="btn btn-sm btn-primary btn-add-nota">Nota</button>
-                            <button class="btn btn-sm btn-success btn-add-obs">Obs</button>
-                        </div>
-                    </div>
-                    
-                    <div class="student-item">
-                        <div class="student-info">
-                            <strong>Debora Viana</strong>
-                            <div style="display: flex; gap: 1rem; margin-top: 0.3rem;">
-                                <small>Faltas: <span class="faltas-count">1</span></small>
-                                <small>Média: <span class="media-value">9.0</span></small>
-                            </div>
-                        </div>
-                        <div class="student-actions">
-                            <button class="btn btn-sm btn-warning btn-add-falta">+ Falta</button>
-                            <button class="btn btn-sm btn-primary btn-add-nota">Nota</button>
-                            <button class="btn btn-sm btn-success btn-add-obs">Obs</button>
-                        </div>
-                    </div>
-                        <button class="btn btn-primary">Ver todos os alunos</button>
+                        <button class="btn btn-primary" style="margin-bottom: 0.5rem; width: 100%;" onclick="openModal('nota-modal')">
+                            <i class="fas fa-plus"></i> Adicionar Nota
+                        </button>
+                        <button class="btn btn-primary" style="margin-bottom: 0.5rem; width: 100%;" onclick="openModal('frequencia-modal')">
+                            <i class="fas fa-calendar-alt"></i> Registrar Falta
+                        </button>
+                        <button class="btn btn-primary" style="margin-bottom: 0.5rem; width: 100%;" onclick="openModal('observacao-modal')">
+                            <i class="fas fa-comment-alt"></i> Adicionar Observação
+                        </button>
+                        <button class="btn btn-primary" style="width: 100%;">
+                            <i class="fas fa-envelope"></i> Enviar Mensagem
+                        </button>
                     </div>
                 </div>
+            </div>
 
+            <!-- Seção Turmas -->
+            <div id="turmas-section" class="content-section" style="display: none;">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Atividades Pendentes</h3>
-                        <span class="badge badge-danger">3 atividades</span>
+                        <h2 class="card-title">Minhas Turmas</h2>
+                        <button class="btn btn-primary" onclick="openModal('nova-turma-modal')">
+                            <i class="fas fa-plus"></i> Nova Turma
+                        </button>
                     </div>
-                    <div class="student-item">
-                        <div class="student-info">
-                            <strong>Correção de Prova - 9ºA</strong>
-                            <small>Prazo: 15/05/2023</small>
-                        </div>
-                        <button class="btn btn-sm btn-primary iniciar-btn">Iniciar</button>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Turma</th>
+                                    <th>Disciplina</th>
+                                    <th>Quantidade de Alunos</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>3º Ano A</td>
+                                    <td>PDM</td>
+                                    <td>30</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="verTurma('3A-PDM')">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2º Ano B</td>
+                                    <td>Banco de Dados</td>
+                                    <td>25</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="verTurma('2B-BD')">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>4º Ano A</td>
+                                    <td>Métodos de Pesquisa</td>
+                                    <td>20</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="verTurma('4A-MP')">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="student-item">
-                        <div class="student-info">
-                            <strong>Plano de Aula - Abril</strong>
-                            <small>Prazo: 10/04/2023</small>
-                        </div>
-                        <button class="btn btn-sm btn-primary editar-btn">Editar</button>
+                </div>
+            </div>
+
+            <!-- Seção Lançar Notas -->
+            <div id="notas-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Lançar Notas</h2>
+                        <button class="btn btn-primary" onclick="openModal('nota-modal')">
+                            <i class="fas fa-plus"></i> Nova Nota
+                        </button>
                     </div>
-                    <div class="student-item">
-                        <div class="student-info">
-                            <strong>Relatório de Frequência</strong>
-                            <small>Prazo: 05/04/2023</small>
-                        </div>
-                        <button class="btn btn-sm btn-primary enviar-btn">Enviar</button>
+                    <div class="form-group">
+                        <label class="form-label">Selecione a Turma:</label>
+                        <select class="form-select" id="turma-notas">
+                            <option value="">-- Selecione --</option>
+                            <option value="3A-PDM">3º Ano A - PDM</option>
+                            <option value="2B-BD">2º Ano B - Banco de Dados</option>
+                            <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Aluno</th>
+                                    <th>Atividade 1</th>
+                                    <th>Atividade 2</th>
+                                    <th>Prova</th>
+                                    <th>Média</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>João Silva</td>
+                                    <td>8.5</td>
+                                    <td>7.0</td>
+                                    <td>9.0</td>
+                                    <td>8.2</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="editarNota('1')">
+                                            <i class="fas fa-edit"></i> Editar
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Maria Oliveira</td>
+                                    <td>6.0</td>
+                                    <td>7.5</td>
+                                    <td>8.0</td>
+                                    <td>7.2</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="editarNota('2')">
+                                            <i class="fas fa-edit"></i> Editar
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Frequência -->
+            <div id="frequencia-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Registrar Frequência</h2>
+                        <button class="btn btn-primary" onclick="openModal('frequencia-modal')">
+                            <i class="fas fa-plus"></i> Nova Falta
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Selecione a Turma:</label>
+                        <select class="form-select" id="turma-frequencia">
+                            <option value="">-- Selecione --</option>
+                            <option value="3A-PDM">3º Ano A - PDM</option>
+                            <option value="2B-BD">2º Ano B - Banco de Dados</option>
+                            <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Selecione a Data:</label>
+                        <input type="date" class="form-control" id="data-frequencia">
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Aluno</th>
+                                    <th>Presença</th>
+                                    <th>Total Faltas</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>João Silva</td>
+                                    <td>
+                                        <input type="checkbox" checked>
+                                    </td>
+                                    <td>2</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="verFrequencia('1')">
+                                            <i class="fas fa-eye"></i> Histórico
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Maria Oliveira</td>
+                                    <td>
+                                        <input type="checkbox">
+                                    </td>
+                                    <td>5</td>
+                                    <td>
+                                        <button class="btn btn-secondary" onclick="verFrequencia('2')">
+                                            <i class="fas fa-eye"></i> Histórico
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="form-group" style="margin-top: 1rem;">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-save"></i> Salvar Frequência
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Observações -->
+            <div id="observacoes-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Observações</h2>
+                        <button class="btn btn-primary" onclick="openModal('observacao-modal')">
+                            <i class="fas fa-plus"></i> Nova Observação
+                        </button>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Filtrar por:</label>
+                        <select class="form-select" id="filtro-observacoes">
+                            <option value="">-- Todas --</option>
+                            <option value="aluno">Aluno Específico</option>
+                            <option value="turma">Turma Inteira</option>
+                        </select>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Aluno/Turma</th>
+                                    <th>Observação</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10/11/2023</td>
+                                    <td>João Silva</td>
+                                    <td>Precisa melhorar participação nas aulas</td>
+                                    <td>
+                                        <button class="btn btn-secondary">
+                                            <i class="fas fa-edit"></i> Editar
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>05/11/2023</td>
+                                    <td>3º Ano A</td>
+                                    <td>Turma com bom desempenho no trabalho em grupo</td>
+                                    <td>
+                                        <button class="btn btn-secondary">
+                                            <i class="fas fa-edit"></i> Editar
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
         </main>
     </div>
-    <!-- Modal para Adicionar Falta -->
-    <div class="modal" id="faltaModal">
+
+    <!-- Modal Adicionar Nota -->
+    <div id="nota-modal" class="modal">
         <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">Registrar Falta</h3>
-            <button class="close-modal">&times;</button>
-          </div>
-          <form id="faltaForm">
-            <div class="form-group">
-              <label class="form-label">Aluno</label>
-              <input type="text" class="form-control" id="faltaAluno" readonly>
+            <div class="modal-header">
+                <h3 class="modal-title">Adicionar Nota</h3>
+                <button class="modal-close" onclick="closeModal('nota-modal')">&times;</button>
             </div>
             <div class="form-group">
-              <label class="form-label">Data da Falta</label>
-              <input type="date" class="form-control" id="faltaData" required>
+                <label class="form-label">Selecione a Turma:</label>
+                <select class="form-control" id="turma-nota">
+                    <option value="">-- Selecione --</option>
+                    <option value="3A-PDM">3º Ano A - PDM</option>
+                    <option value="2B-BD">2º Ano B - Banco de Dados</option>
+                    <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                </select>
             </div>
             <div class="form-group">
-              <label class="form-label">Justificativa</label>
-              <select class="form-control" id="faltaJustificativa">
-                <option value="N">Não Justificada</option>
-                <option value="J">Justificada</option>
-              </select>
+                <label class="form-label">Selecione o Aluno (ou deixe em branco para turma inteira):</label>
+                <select class="form-control" id="aluno-nota">
+                    <option value="">-- Todos os Alunos --</option>
+                    <option value="1">João Silva</option>
+                    <option value="2">Maria Oliveira</option>
+                    <option value="3">Carlos Souza</option>
+                </select>
             </div>
             <div class="form-group">
-              <label class="form-label">Observações</label>
-              <textarea class="form-control" id="faltaObservacoes" rows="3"></textarea>
+                <label class="form-label">Tipo de Avaliação:</label>
+                <select class="form-control" id="tipo-avaliacao">
+                    <option value="atividade">Atividade</option>
+                    <option value="prova">Prova</option>
+                    <option value="trabalho">Trabalho</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nome da Avaliação:</label>
+                <input type="text" class="form-control" id="nome-avaliacao" placeholder="Ex: Prova Bimestral 1">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Nota:</label>
+                <input type="number" step="0.1" min="0" max="10" class="form-control" id="valor-nota" placeholder="0.0 a 10.0">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Data:</label>
+                <input type="date" class="form-control" id="data-nota">
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger close-modal">Cancelar</button>
-              <button type="submit" class="btn btn-success">Registrar Falta</button>
+                <button class="btn btn-secondary" onclick="closeModal('nota-modal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="salvarNota()">Salvar Nota</button>
             </div>
-          </form>
         </div>
-      </div>
-      <div class="modal" id="notaModal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">Lançar Nota</h3>
-            <button class="close-modal">&times;</button>
-          </div>
-          <form id="notaForm">
-            <div class="form-group">
-              <label class="form-label">Aluno</label>
-              <input type="text" class="form-control" id="notaAluno" readonly>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Avaliação</label>
-              <select class="form-control" id="notaAvaliacao" required>
-                <option value="N1">1ª Avaliação (N1)</option>
-                <option value="N2">2ª Avaliação (N2)</option>
-                <option value="N3">3ª Avaliação (N3)</option>
-                <option value="NT">Trabalho</option>
-                <option value="NP">Projeto</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Nota (0 a 10)</label>
-              <input type="number" class="form-control" id="notaValor" min="0" max="10" step="0.1" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Data</label>
-              <input type="date" class="form-control" id="notaData" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Observações</label>
-              <textarea class="form-control" id="notaObservacoes" rows="3"></textarea>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger close-modal">Cancelar</button>
-              <button type="submit" class="btn btn-success">Lançar Nota</button>
-            </div>
-          </form>
-        </div>
-      </div>
-      <div class="modal" id="obsModal">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h3 class="modal-title">Adicionar Observação</h3>
-            <button class="close-modal">&times;</button>
-          </div>
-          <form id="obsForm">
-            <div class="form-group">
-              <label class="form-label">Aluno</label>
-              <input type="text" class="form-control" id="obsAluno" readonly>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Tipo</label>
-              <select class="form-control" id="obsTipo">
-                <option value="comportamento">Comportamento</option>
-                <option value="desempenho">Desempenho</option>
-                <option value="outro">Outro</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Data</label>
-              <input type="date" class="form-control" id="obsData" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Observação</label>
-              <textarea class="form-control" id="obsTexto" rows="4" required></textarea>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger close-modal">Cancelar</button>
-              <button type="submit" class="btn btn-success">Salvar Observação</button>
-            </div>
-          </form>
-        </div>
-      </div>
     </div>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-<script src="../portal/professor.js"></script>
+
+    <!-- Modal Registrar Falta -->
+    <div id="frequencia-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Registrar Falta</h3>
+                <button class="modal-close" onclick="closeModal('frequencia-modal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Selecione a Turma:</label>
+                <select class="form-control" id="turma-falta">
+                    <option value="">-- Selecione --</option>
+                    <option value="3A-PDM">3º Ano A - PDM</option>
+                    <option value="2B-BD">2º Ano B - Banco de Dados</option>
+                    <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Selecione o Aluno (ou deixe em branco para turma inteira):</label>
+                <select class="form-control" id="aluno-falta">
+                    <option value="">-- Todos os Alunos --</option>
+                    <option value="1">João Silva</option>
+                    <option value="2">Maria Oliveira</option>
+                    <option value="3">Carlos Souza</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Data:</label>
+                <input type="date" class="form-control" id="data-falta">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Justificativa (opcional):</label>
+                <textarea class="form-control" id="justificativa-falta" rows="3"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('frequencia-modal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="salvarFalta()">Registrar Falta</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Adicionar Observação -->
+    <div id="observacao-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Adicionar Observação</h3>
+                <button class="modal-close" onclick="closeModal('observacao-modal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Selecione a Turma:</label>
+                <select class="form-control" id="turma-observacao">
+                    <option value="">-- Selecione --</option>
+                    <option value="3A-PDM">3º Ano A - PDM</option>
+                    <option value="2B-BD">2º Ano B - Banco de Dados</option>
+                    <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Selecione o Aluno (ou deixe em branco para turma inteira):</label>
+                <select class="form-control" id="aluno-observacao">
+                    <option value="">-- Todos os Alunos --</option>
+                    <option value="1">João Silva</option>
+                    <option value="2">Maria Oliveira</option>
+                    <option value="3">Carlos Souza</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Observação:</label>
+                <textarea class="form-control" id="texto-observacao" rows="5" placeholder="Digite sua observação..."></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Data:</label>
+                <input type="date" class="form-control" id="data-observacao">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('observacao-modal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="salvarObservacao()">Salvar Observação</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Portal do Professor - Todos os direitos reservados</p>
+    </footer>
+    <script src="../portal/professor.js"></script>
 </body>
 </html>
