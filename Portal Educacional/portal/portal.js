@@ -98,4 +98,58 @@ const usuarios = {
     return JSON.parse(userData);
   }
 
-  
+  // Funções para controlar as seções
+  function showSection(sectionId) {
+    // Esconde todas as seções
+    document.querySelectorAll('.content-section').forEach(section => {
+        section.style.display = 'none';
+    });
+    
+    // Mostra a seção selecionada
+    document.getElementById(sectionId + '-section').style.display = 'block';
+    
+    // Atualiza o menu ativo
+    document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+    });
+    
+    // Encontra o item do menu correspondente e marca como ativo
+    const menuItems = document.querySelectorAll('.nav-item');
+    for (let i = 0; i < menuItems.length; i++) {
+        if (menuItems[i].getAttribute('onclick').includes(sectionId)) {
+            menuItems[i].classList.add('active');
+            break;
+        }
+    }
+}
+// Funções para controlar os modais
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Funções para salvar dados (simuladas)
+function enviarJustificativa() {
+    alert('Justificativa enviada com sucesso!');
+    closeModal('justificar-falta-modal');
+}
+
+function enviarMensagem() {
+    alert('Mensagem enviada com sucesso!');
+    closeModal('nova-mensagem-modal');
+}
+
+function gerarBoletim() {
+    alert('Boletim gerado com sucesso!');
+    closeModal('boletim-modal');
+}
+
+// Fecha o modal se clicar fora do conteúdo
+window.onclick = function(event) {
+    if (event.target.className === 'modal') {
+        event.target.style.display = 'none';
+    }
+} 
