@@ -78,3 +78,75 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+ // Funções para controlar as seções
+ function showSection(sectionId) {
+  // Esconde todas as seções
+  document.querySelectorAll('.content-section').forEach(section => {
+      section.style.display = 'none';
+  });
+  
+  // Mostra a seção selecionada
+  document.getElementById(sectionId + '-section').style.display = 'block';
+  
+  // Atualiza o menu ativo
+  document.querySelectorAll('.nav-item').forEach(item => {
+      item.classList.remove('active');
+  });
+  
+  // Encontra o item do menu correspondente e marca como ativo
+  const menuItems = document.querySelectorAll('.nav-item');
+  for (let i = 0; i < menuItems.length; i++) {
+      if (menuItems[i].getAttribute('onclick').includes(sectionId)) {
+          menuItems[i].classList.add('active');
+          break;
+      }
+  }
+}
+
+// Funções para controlar os modais
+function openModal(modalId) {
+  document.getElementById(modalId).style.display = 'flex';
+}
+
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+}
+
+// Funções para salvar dados (simuladas)
+function salvarNota() {
+  alert('Nota salva com sucesso!');
+  closeModal('nota-modal');
+}
+
+function salvarFalta() {
+  alert('Falta registrada com sucesso!');
+  closeModal('frequencia-modal');
+}
+
+function salvarObservacao() {
+  alert('Observação salva com sucesso!');
+  closeModal('observacao-modal');
+}
+
+// Funções auxiliares
+function verTurma(turmaId) {
+  alert('Visualizando turma: ' + turmaId);
+  // Aqui você poderia carregar os detalhes da turma
+}
+
+function editarNota(alunoId) {
+  alert('Editando nota do aluno ID: ' + alunoId);
+  openModal('nota-modal');
+}
+
+function verFrequencia(alunoId) {
+  alert('Visualizando frequência do aluno ID: ' + alunoId);
+}
+
+// Fecha o modal se clicar fora do conteúdo
+window.onclick = function(event) {
+  if (event.target.className === 'modal') {
+      event.target.style.display = 'none';
+  }
+}
