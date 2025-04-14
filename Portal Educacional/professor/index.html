@@ -2,118 +2,102 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="../css/index.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema Educacional - Acesso</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f5f5f5;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #333;
-        }
-        
-        .login-container {
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-        
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        
-        .form-group {
-            margin-bottom: 16px;
-        }
-        
-        label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-        
-        select, input {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-        
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        button:hover {
-            background-color: #2980b9;
-        }
-        
-        .message {
-            margin-top: 16px;
-            padding: 10px;
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        .error {
-            background-color: #f8d7da;
-            color: #721c24;
-        }
-        
-        .success {
-            background-color: #d4edda;
-            color: #155724;
-        }
-    </style>
+    <title>Acesso ao Portal Educacional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <div class="login-container">
-        <h1 id="portal-title">Selecione o Portal</h1>
-        
-        <form id="login-form">
-            <div class="form-group">
-                <label for="portal-select">Portal:</label>
-                <select id="portal-select" required>
-                    <option value="">-- Selecione --</option>
-                    <option value="aluno">Portal do Aluno</option>
-                    <option value="professor">Portal do Professor</option>
-                </select>
-            </div>
+        <div class="login-header">
+            <h1><i class="fas fa-graduation-cap"></i> Portal Educacional</h1>
+            <p>Acesse seu portal para continuar</p>
+        </div>
+        <div class="login-body">
+            <div id="message" class="message" style="display: none;"></div>
             
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="senha">Senha:</label>
-                <input type="password" id="senha" required>
-            </div>
-            
-            <button type="submit" id="login-btn">Acessar</button>
-            
-            <div id="message" class="message"></div>
-        </form>
+            <form id="login-form">
+                <div class="form-group">
+                    <label for="portal-select" class="form-label">Selecione o Portal:</label>
+                    <div class="input-with-icon">
+                        <select id="portal-select" class="form-control" required>
+                            <option value="">-- Selecione o portal --</option>
+                            <option value="aluno">Portal do Aluno</option>
+                            <option value="professor">Portal do Professor</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Email Institucional:</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" class="form-control" placeholder="seu.email@escola.com" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="senha" class="form-label">Senha:</label>
+                    <div class="input-with-icon">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="senha" class="form-control" placeholder="Digite sua senha" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-sign-in-alt"></i> Acessar
+                    </button>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <script src="../portal/portal.js"></script>
+    <script>
+        // Função para mostrar mensagens
+        function showMessage(type, text) {
+            const messageEl = document.getElementById('message');
+            messageEl.style.display = 'block';
+            messageEl.textContent = text;
+            messageEl.className = 'message message-' + type;
+            
+            // Esconde a mensagem após 5 segundos
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Manipulação do formulário
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const portal = document.getElementById('portal-select').value;
+            const email = document.getElementById('email').value;
+            const senha = document.getElementById('senha').value;
+            
+            // Validação simples
+            if (!portal) {
+                showMessage('error', 'Por favor, selecione o portal que deseja acessar.');
+                return;
+            }
+            
+            if (!email || !senha) {
+                showMessage('error', 'Por favor, preencha todos os campos.');
+                return;
+            }
+            
+            // Simulação de login bem-sucedido
+            showMessage('success', 'Login realizado com sucesso! Redirecionando...');
+            
+            // Redirecionamento simulado
+            setTimeout(() => {
+                if (portal === 'aluno') {
+                    window.location.href = '../aluno/dashboard.html';
+                } else if (portal === 'professor') {
+                    window.location.href = '../professor/dashboard.html';
+                } 
+            }, 1500);
+        });
+    </script>
 </body>
 </html>
