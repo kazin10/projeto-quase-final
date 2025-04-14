@@ -7,158 +7,636 @@
     <title>Portal do Aluno</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-    <body>
-        <header>
-            <div class="logo">Portal do Aluno</div>
-            <div class="user-info">
-                <span>Kauã Santos</span>
-                <div class="user-avatar">KS</div> 
-            </div>
-        </header>
+<body>
+    <header>
+        <div class="logo">Portal do Aluno</div>
+        <div class="user-info">
+            <span>Vinicius Santana</span>
+            <div class="user-avatar">VS</div> 
+        </div>
+    </header>
+    
+    <div class="container">
+        <aside class="sidebar">
+            <ul class="nav-menu">
+                <li class="nav-item active" onclick="showSection('dashboard')">
+                    <i class="fas fa-home"></i> Dashboard
+                </li>
+                <li class="nav-item" onclick="showSection('notas')">
+                    <i class="fas fa-clipboard-list"></i> Minhas Notas
+                </li>
+                <li class="nav-item" onclick="showSection('frequencia')">
+                    <i class="fas fa-calendar-check"></i> Minha Frequência
+                </li>
+                <li class="nav-item" onclick="showSection('disciplinas')">
+                    <i class="fas fa-book"></i> Disciplinas
+                </li>
+                <li class="nav-item" onclick="showSection('mensagens')">
+                    <i class="fas fa-envelope"></i> Mensagens
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-sign-out-alt"><a href="logout.html">Sair</a></i>
+                </li>
+            </ul>
+        </aside>
         
-        <div class="container">
-            <aside class="sidebar">
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <a href="dashboard.html" class="active">
-                            <i class="fas fa-home"></i> Dashboard
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="logout.html">
-                            <i class="fas fa-sign-out-alt"></i> Sair
-                        </a>
-                    </li>
-                </ul>
-            </aside>
-            
-      
-            <main class="main-content">
+        <main class="main-content">
+            <!-- Seção Dashboard -->
+            <div id="dashboard-section" class="content-section">
                 <div class="welcome-banner">
-                    <h1>Bem-vindo, Kauã Santos!</h1>
-                    <p>Gerencie as informações acadêmicas dos seus alunos</p>
+                    <h1>Bem-vindo, Vinicius!</h1>
+                    <p>Acompanhe seu desempenho acadêmico</p>
                 </div>
                 
                 <div class="cards-container">
                     <!-- Card de Notas -->
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title">Notas Recentes</h2>
-                            <span class="badge badge-warning">2 novas</span>
+                            <h2 class="card-title">Resumo de Notas</h2>
+                            <span class="badge badge-info">Média: 8.2</span>
                         </div>
-                        <table class="grades-table">
-                            <thead>
-                                <tr>
-                                    <th>Disciplina</th>
-                                    <th>Nota</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>PDM</td>
-                                    <td>8.5</td>
-                                    <td><span class="badge badge-success">Aprovado</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Banco De Dados</td>
-                                    <td>4.0</td>
-                                    <td><span class="badge badge-warning">Recuperação</span></td>
-                                </tr>
-                                <tr>
-                                    <td>Metodo De Pesquisa</td>
-                                    <td>9.0</td>
-                                    <td><span class="badge badge-success">Aprovado</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <ul style="list-style: none;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Programação Web</strong>
+                                <p>Nota atual: 8.5</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Banco de Dados</strong>
+                                <p>Nota atual: 7.8</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 78%"></div>
+                                </div>
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <strong>Metodo de Pesquisa</strong>
+                                <p>Nota atual: 8.3</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 83%"></div>
+                                </div>
+                            </li>
+                        </ul>
+                        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;" onclick="showSection('notas')">
+                            Ver Todas as Notas
+                        </button>
                     </div>
                     
                     <!-- Card de Frequência -->
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title">Frequência</h2>
-                            <span class="badge badge-danger">75%</span>
+                            <h2 class="card-title">Minha Frequência</h2>
+                            <span class="badge badge-warning">3 faltas</span>
                         </div>
-                        <p>Presença geral: 75%</p>
-                        <div class="attendance-progress">
-                            <div class="progress-bar" style="width: 75%;"></div>
-                        </div>
-                        <p style="margin-top: 1rem;"><strong>Atenção:</strong> Você está próximo do limite de faltas em PDM.</p>
-                        <ul>
-                            <li>PDM: 10 faltas (Limite: 15)</li>
-                            <li>Banco de Dados: 5 faltas (Limite: 12)</li>
-                            <li>Métodos de Pesquisa: 3 faltas (Limite: 10)</li>
+                        <ul style="list-style: none;">
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Programação Web</strong>
+                                <p>Presença: 92%</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 92%"></div>
+                                </div>
+                            </li>
+                            <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                                <strong>Banco de Dados</strong>
+                                <p>Presença: 85%</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 85%"></div>
+                                </div>
+                            </li>
+                            <li style="padding: 0.5rem 0;">
+                                <strong>Metodo de Pesquisa</strong>
+                                <p>Presença: 95%</p>
+                                <div class="progress-container">
+                                    <div class="progress-bar" style="width: 95%"></div>
+                                </div>
+                            </li>
                         </ul>
+                        <button class="btn btn-primary" style="margin-top: 1rem; width: 100%;" onclick="showSection('frequencia')">
+                            Ver Detalhes
+                        </button>
                     </div>
                     
-                    <!-- Card de Atividades -->
+                    <!-- Card de Avisos -->
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title">Próximas Atividades</h2>
-                            <span class="badge badge-warning">3 pendentes</span>
+                            <h2 class="card-title">Avisos Recentes</h2>
                         </div>
-                        <div class="activity-item">
-                            <div class="activity-title">Trabalho de PDM</div>
-                            <div class="activity-date">Entrega: 15/11/2023</div>
-                            <span class="activity-status status-pending">Pendente</span>
-                            <input type="checkbox" class="activity-checkbox" onchange="toggleActivityStatus(this, 'Trabalho de PDM')">
+                        <div style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                            <strong>Prova de Banco de Dados</strong>
+                            <p>Dia 20/11 às 14h na sala 205</p>
+                            <small style="color: #64748b;">Postado em: 10/11/2023</small>
                         </div>
-                        <div class="activity-item">
-                            <div class="activity-title">Prova de Banco De Dados</div>
-                            <div class="activity-date">Data: 10/11/2023</div>
-                            <span class="activity-status status-pending">Pendente</span>
-                            <input type="checkbox" class="activity-checkbox" onchange="toggleActivityStatus(this, 'Prova de Banco De Dados')">
+                        <div style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
+                            <strong>Trabalho de Programação Web</strong>
+                            <p>Prazo final para entrega: 25/11/2023</p>
+                            <small style="color: #64748b;">Postado em: 05/11/2023</small>
                         </div>
-                        <div class="activity-item">
-                            <div class="activity-title">Prova</div>
-                            <div class="activity-date">Entrega: 08/11/2023</div>
-                            <span class="activity-status status-late">Atrasado</span>
-                            <input type="checkbox" class="activity-checkbox" onchange="toggleActivityStatus(this, 'Prova')">
+                        <div style="padding: 0.5rem 0;">
+                            <strong>Recesso Acadêmico</strong>
+                            <p>Dias 30/11 e 01/12 - não haverá aula</p>
+                            <small style="color: #64748b;">Postado em: 01/11/2023</small>
                         </div>
                     </div>
                     
-                    <!-- Card de Observações -->
+                    <!-- Card de Ações Rápidas -->
                     <div class="card">
                         <div class="card-header">
-                            <h2 class="card-title">Observações Recentes</h2>
+                            <h2 class="card-title">Ações Rápidas</h2>
                         </div>
-                        <div class="activity-item">
-                            <div class="activity-title">Prof. Debora - Metodo De Pesquisa</div>
-                            <p>kauã precisa melhorar a participação nas aulas.</p>
-                            <div class="activity-date">05/11/2023</div>
+                        <button class="btn btn-primary" style="margin-bottom: 0.5rem; width: 100%;" onclick="openModal('justificar-falta-modal')">
+                            <i class="fas fa-file-alt"></i> Justificar Falta
+                        </button>
+                        <button class="btn btn-primary" style="margin-bottom: 0.5rem; width: 100%;" onclick="showSection('mensagens')">
+                            <i class="fas fa-envelope"></i> Enviar Mensagem
+                        </button>
+                        <button class="btn btn-primary" style="margin-bottom: 0.5rem; width: 100%;" onclick="showSection('horarios')">
+                            <i class="fas fa-calendar-alt"></i> Ver Horários
+                        </button>
+                        <button class="btn btn-primary" style="width: 100%;" onclick="openModal('material-modal')">
+                            <i class="fas fa-download"></i> Baixar Material
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Notas -->
+            <div id="notas-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Minhas Notas</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Disciplina</th>
+                                    <th>Atividade</th>
+                                    <th>Nota</th>
+                                    <th>Data</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Programação Web</td>
+                                    <td>Prova Bimestral 1</td>
+                                    <td>8.5</td>
+                                    <td>15/10/2023</td>
+                                    <td><span class="badge badge-success">Aprovado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Banco de Dados</td>
+                                    <td>Trabalho Prático</td>
+                                    <td>7.8</td>
+                                    <td>20/10/2023</td>
+                                    <td><span class="badge badge-success">Aprovado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Metodo de Pesquisa</td>
+                                    <td>Atividade 3</td>
+                                    <td>6.5</td>
+                                    <td>05/11/2023</td>
+                                    <td><span class="badge badge-warning">Recuperação</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Programação Web</td>
+                                    <td>Projeto Final</td>
+                                    <td>-</td>
+                                    <td>25/11/2023</td>
+                                    <td><span class="badge badge-info">Pendente</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Card de Médias -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Médias por Disciplina</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Disciplina</th>
+                                    <th>Média Atual</th>
+                                    <th>Faltas</th>
+                                    <th>Situação</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Programação Web</td>
+                                    <td>8.5</td>
+                                    <td>1</td>
+                                    <td><span class="badge badge-success">Aprovado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Banco de Dados</td>
+                                    <td>7.8</td>
+                                    <td>3</td>
+                                    <td><span class="badge badge-success">Aprovado</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Metodo de Pesquisa</td>
+                                    <td>6.2</td>
+                                    <td>0</td>
+                                    <td><span class="badge badge-warning">Recuperação</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Frequência -->
+            <div id="frequencia-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Minha Frequência</h2>
+                        <button class="btn btn-primary" onclick="openModal('justificar-falta-modal')">
+                            <i class="fas fa-file-alt"></i> Justificar Falta
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Disciplina</th>
+                                    <th>Status</th>
+                                    <th>Justificativa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>10/10/2023</td>
+                                    <td>Banco de Dados</td>
+                                    <td><span class="badge badge-danger">Falta</span></td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>15/10/2023</td>
+                                    <td>Programação Web</td>
+                                    <td><span class="badge badge-success">Presente</span></td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>20/10/2023</td>
+                                    <td>Banco de Dados</td>
+                                    <td><span class="badge badge-danger">Falta</span></td>
+                                    <td>Atestado médico</td>
+                                </tr>
+                                <tr>
+                                    <td>25/10/2023</td>
+                                    <td>Metodo de Pesquisa</td>
+                                    <td><span class="badge badge-success">Presente</span></td>
+                                    <td>-</td>
+                                </tr>
+                                <tr>
+                                    <td>05/11/2023</td>
+                                    <td>Banco de Dados</td>
+                                    <td><span class="badge badge-danger">Falta</span></td>
+                                    <td>-</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Card de Resumo de Frequência -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Resumo de Frequência</h2>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Disciplina</th>
+                                    <th>Aulas Totais</th>
+                                    <th>Presenças</th>
+                                    <th>Faltas</th>
+                                    <th>Percentual</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Programação Web</td>
+                                    <td>20</td>
+                                    <td>19</td>
+                                    <td>1</td>
+                                    <td>95%</td>
+                                </tr>
+                                <tr>
+                                    <td>Banco de Dados</td>
+                                    <td>20</td>
+                                    <td>17</td>
+                                    <td>3</td>
+                                    <td>85%</td>
+                                </tr>
+                                <tr>
+                                    <td>Metodo de Pesquisa</td>
+                                    <td>20</td>
+                                    <td>20</td>
+                                    <td>0</td>
+                                    <td>100%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção Disciplinas -->
+            <div id="disciplinas-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Minhas Disciplinas</h2>
+                    </div>
+                    <div class="cards-container">
+                        <!-- Card Disciplina 1 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Programação Web</h2>
+                                <span class="badge badge-success">Ativa</span>
+                            </div>
+                            <p><strong>Professar:</strong>Vinicius Ximenes</p>
+                            <p><strong>Horário:</strong> Segunda e Quarta, 14h-16h</p>
+                            <p><strong>Sala:</strong> 205</p>
+                            <p><strong>Média Atual:</strong> 8.5</p>
                         </div>
-                        <div class="activity-item">
-                            <div class="activity-title">Coordenação</div>
-                            <p>Entrega de resultados agendada para 20/11.</p>
-                            <div class="activity-date">01/11/2023</div>
+                        
+                        <!-- Card Disciplina 2 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Banco de Dados</h2>
+                                <span class="badge badge-success">Ativa</span>
+                            </div>
+                            <p><strong>Professor:</strong>Breno Ribeiro</p>
+                            <p><strong>Horário:</strong> Terça e Quinta, 10h-12h</p>
+                            <p><strong>Sala:</strong> 301</p>
+                            <p><strong>Média Atual:</strong> 7.8</p>
+                        </div>
+                        
+                        <!-- Card Disciplina 3 -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h2 class="card-title">Metodo de Pesquisa</h2>
+                                <span class="badge badge-success">Ativa</span>
+                            </div>
+                            <p><strong>Professor:</strong>Debora Viana</p>
+                            <p><strong>Horário:</strong> Sexta, 8h-12h</p>
+                            <p><strong>Sala:</strong> 102</p>
+                            <p><strong>Média Atual:</strong> 6.2</p>
                         </div>
                     </div>
                 </div>
-            </main>
-        </div>
-        <footer>
-            <p>&copy; 2025 Portal do Aluno</p>
-        </footer>
-    
-        <script>
-            function toggleActivityStatus(checkbox, activityTitle) {
-                const activityItem = checkbox.parentElement;
-                const statusSpan = activityItem.querySelector('.activity-status');
+            </div>
+
+            <!-- Seção Horários -->
+            <div id="horarios-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Meu Horário</h2>
+                        <button class="btn btn-primary" onclick="openModal('calendario-modal')">
+                            <i class="fas fa-calendar"></i> Calendário
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Horário</th>
+                                    <th>Segunda</th>
+                                    <th>Terça</th>
+                                    <th>Quarta</th>
+                                    <th>Quinta</th>
+                                    <th>Sexta</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>08:00 - 10:00</td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td>Metodo de Pesquisa (Sala 102)</td>
+                                </tr>
+                                <tr>
+                                    <td>10:00 - 12:00</td>
+                                    <td></td>
+                                    <td>Banco de Dados (Sala 301)</td>
+                                    <td></td>
+                                    <td>Banco de Dados (Sala 301)</td>
+                                    <td>Metodo de Pesquisa (Sala 102)</td>
+                                </tr>
+                                <tr>
+                                    <td>14:00 - 16:00</td>
+                                    <td>Programação Web (Sala 205)</td>
+                                    <td></td>
+                                    <td>Programação Web (Sala 205)</td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
                 
-                if (checkbox.checked) {
-                    statusSpan.textContent = 'Concluído';
-                    statusSpan.classList.remove('status-pending', 'status-late');
-                    statusSpan.classList.add('status-completed');
-                    alert(`Atividade "${activityTitle}" concluída! Notificação enviada ao professor.`);
-                } else {
-                    statusSpan.textContent = 'Pendente';
-                    statusSpan.classList.remove('status-completed');
-                    statusSpan.classList.add('status-pending');
-                }
-            }
-        </script>
+                <!-- Card de Próximas Aulas -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Próximas Aulas</h2>
+                    </div>
+                    <ul style="list-style: none;">
+                        <li style="padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
+                            <strong>Programação Web</strong>
+                            <p>Amanhã, 14h - Sala 205</p>
+                            <p><strong>Tópico:</strong> Introdução a JavaScript</p>
+                        </li>
+                        <li style="padding: 1rem 0; border-bottom: 1px solid #e2e8f0;">
+                            <strong>Banco de Dados</strong>
+                            <p>Terça-feira, 10h - Sala 301</p>
+                            <p><strong>Tópico:</strong> Modelagem de Dados</p>
+                        </li>
+                        <li style="padding: 1rem 0;">
+                            <strong>Metodo de Pesquisa</strong>
+                            <p>Sexta-feira, 8h - Sala 102</p>
+                            <p><strong>Tópico:</strong> Funções Trigonométricas</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Seção Mensagens -->
+            <div id="mensagens-section" class="content-section" style="display: none;">
+                <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Mensagens</h2>
+                        <button class="btn btn-primary" onclick="openModal('nova-mensagem-modal')">
+                            <i class="fas fa-plus"></i> Nova Mensagem
+                        </button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>Remetente</th>
+                                    <th>Assunto</th>
+                                    <th>Data</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Prof. Vinicius Ximenes</td>
+                                    <td>Correção do Trabalho</td>
+                                    <td>10/11/2023</td>
+                                    <td>
+                                        <button class="btn btn-secondary">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Coordenação</td>
+                                    <td>Recesso Acadêmico</td>
+                                    <td>05/11/2023</td>
+                                    <td>
+                                        <button class="btn btn-secondary">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Prof. Breno Ribeiro</td>
+                                    <td>Prova Remarcada</td>
+                                    <td>01/11/2023</td>
+                                    <td>
+                                        <button class="btn btn-secondary">
+                                            <i class="fas fa-eye"></i> Ver
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Card de Mensagem em Destaque -->
+                <div class="card" style="margin-top: 1.5rem;">
+                    <div class="card-header">
+                        <h2 class="card-title">Mensagem Recente</h2>
+                    </div>
+                    <div style="padding: 1rem;">
+                        <p><strong>De:</strong> Prof. Vinicius Ximenes</p>
+                        <p><strong>Assunto:</strong> Correção do Trabalho</p>
+                        <p><strong>Data:</strong> 10/11/2023</p>
+                        <div style="margin-top: 1rem; padding: 1rem; background-color: #f8fafc; border-radius: 4px;">
+                            <p>Olá Vinicius,</p>
+                            <p>Seu trabalho foi corrigido e já está disponível para visualização no sistema. Você obteve nota 8,5. Parabéns pelo bom trabalho!</p>
+                            <p>Att,</p>
+                            <p>Prof. Vinicius</p>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <button class="btn btn-primary">
+                                <i class="fas fa-reply"></i> Responder
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modal Justificar Falta -->
+    <div id="justificar-falta-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Justificar Falta</h3>
+                <button class="modal-close" onclick="closeModal('justificar-falta-modal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Selecione a Disciplina:</label>
+                <select class="form-control" id="disciplina-falta">
+                    <option value="">-- Selecione --</option>
+                    <option value="pw">Programação Web</option>
+                    <option value="bd">Banco de Dados</option>
+                    <option value="mat">Metodo de Pesquisa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Data da Falta:</label>
+                <input type="date" class="form-control" id="data-falta">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Tipo de Justificativa:</label>
+                <select class="form-control" id="tipo-justificativa">
+                    <option value="">-- Selecione --</option>
+                    <option value="medico">Atestado Médico</option>
+                    <option value="pessoal">Motivo Pessoal</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Descrição:</label>
+                <textarea class="form-control" id="descricao-justificativa" rows="3" placeholder="Descreva o motivo da falta..."></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Anexar Comprovante (opcional):</label>
+                <input type="file" class="form-control" id="anexo-justificativa">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('justificar-falta-modal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="enviarJustificativa()">Enviar Justificativa</button>
+            </div>
+        </div>
+    </div>
+
     
-        <script src="../portal/portal.js"></script>
-    </body>
-    </html>
+
+    <!-- Modal Nova Mensagem -->
+    <div id="nova-mensagem-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Nova Mensagem</h3>
+                <button class="modal-close" onclick="closeModal('nova-mensagem-modal')">&times;</button>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Para:</label>
+                <select class="form-control" id="destinatario-mensagem">
+                    <option value="">-- Selecione --</option>
+                    <option value="prof1">Prof. Vinicius Ximenes</option>
+                    <option value="prof2">Prof. Breno Ribeiro</option>
+                    <option value="prof3">Prof. Debora Viana</option>
+                    <option value="coordenacao">Coordenação</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Assunto:</label>
+                <input type="text" class="form-control" id="assunto-mensagem" placeholder="Digite o assunto...">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Mensagem:</label>
+                <textarea class="form-control" id="texto-mensagem" rows="5" placeholder="Digite sua mensagem..."></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Anexar Arquivo (opcional):</label>
+                <input type="file" class="form-control" id="anexo-mensagem">
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('nova-mensagem-modal')">Cancelar</button>
+                <button class="btn btn-primary" onclick="enviarMensagem()">Enviar Mensagem</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Portal do Aluno - Todos os direitos reservados</p>
+    </footer>
+    <script src="../portal/portal.js"></script>
+</body>
+</html>
