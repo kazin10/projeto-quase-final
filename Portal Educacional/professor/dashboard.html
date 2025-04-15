@@ -11,8 +11,8 @@
     <header>
         <div class="logo">Portal do Professor</div>
         <div class="user-info">
-            <span>Prof. Carlos Silva</span>
-            <div class="user-avatar">CS</div> 
+            <span>Prof. Vinicius</span>
+            <div class="user-avatar">VS</div> 
         </div>
     </header>
     
@@ -35,7 +35,7 @@
                     <i class="fas fa-comment-alt"></i> Observações
                 </li>
                 <li class="nav-item">
-                    <i class="fas fa-sign-out-alt"></i> Sair
+                    <i class="fas fa-sign-out-alt"><a href="logout.html">Sair</a></i>
                 </li>
             </ul>
         </aside>
@@ -44,7 +44,7 @@
             <!-- Seção Dashboard -->
             <div id="dashboard-section" class="content-section">
                 <div class="welcome-banner">
-                    <h1>Bem-vindo, Professor Carlos!</h1>
+                    <h1>Bem-vindo, Professor Vinicius!</h1>
                     <p>Gerencie as informações acadêmicas dos seus alunos</p>
                 </div>
                 
@@ -57,15 +57,15 @@
                         </div>
                         <ul style="list-style: none;">
                             <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
-                                <strong>PDM - 3º Ano</strong>
+                                <strong>PDM - TDS3º </strong>
                                 <p>30 alunos matriculados</p>
                             </li>
                             <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
-                                <strong>Banco de Dados - 2º Ano</strong>
+                                <strong>Banco de Dados - TDS3º </strong>
                                 <p>25 alunos matriculados</p>
                             </li>
                             <li style="padding: 0.5rem 0;">
-                                <strong>Métodos de Pesquisa - 4º Ano</strong>
+                                <strong>Métodos de Pesquisa -TDS3º </strong>
                                 <p>20 alunos matriculados</p>
                             </li>
                         </ul>
@@ -82,15 +82,15 @@
                         </div>
                         <ul style="list-style: none;">
                             <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
-                                <strong>Trabalho PDM - 3º Ano</strong>
+                                <strong>Trabalho PDM - TDS3º </strong>
                                 <p>15/20 entregues</p>
                             </li>
                             <li style="padding: 0.5rem 0; border-bottom: 1px solid #e2e8f0;">
-                                <strong>Prova Banco de Dados - 2º Ano</strong>
+                                <strong>Prova Banco de Dados -TDS3º </strong>
                                 <p>10/25 entregues</p>
                             </li>
                             <li style="padding: 0.5rem 0;">
-                                <strong>Seminário Métodos - 4º Ano</strong>
+                                <strong>Seminário Métodos - TDS3º </strong>
                                 <p>5/20 entregues</p>
                             </li>
                         </ul>
@@ -163,31 +163,31 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>3º Ano A</td>
+                                    <td> TDS3º </td>
                                     <td>PDM</td>
                                     <td>30</td>
                                     <td>
-                                        <button class="btn btn-secondary" onclick="verTurma('3A-PDM')">
+                                        <button class="btn btn-secondary" onclick="verTurma('3S-PDM')">
                                             <i class="fas fa-eye"></i> Ver
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>2º Ano B</td>
+                                    <td> TDS3º </td>
                                     <td>Banco de Dados</td>
                                     <td>25</td>
                                     <td>
-                                        <button class="btn btn-secondary" onclick="verTurma('2B-BD')">
+                                        <button class="btn btn-secondary" onclick="verTurma('3S-BD')">
                                             <i class="fas fa-eye"></i> Ver
                                         </button>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>4º Ano A</td>
+                                    <td>TDS3º </td>
                                     <td>Métodos de Pesquisa</td>
                                     <td>20</td>
                                     <td>
-                                        <button class="btn btn-secondary" onclick="verTurma('4A-MP')">
+                                        <button class="btn btn-secondary" onclick="verTurma('3S-MP')">
                                             <i class="fas fa-eye"></i> Ver
                                         </button>
                                     </td>
@@ -211,9 +211,9 @@
                         <label class="form-label">Selecione a Turma:</label>
                         <select class="form-select" id="turma-notas">
                             <option value="">-- Selecione --</option>
-                            <option value="3A-PDM">3º Ano A - PDM</option>
-                            <option value="2B-BD">2º Ano B - Banco de Dados</option>
-                            <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                            <option value="3S-PDM">TDS3º PDM</option>
+                            <option value="3S-BD">TDS3º Banco de Dados</option>
+                            <option value="3S-MP"> TDS3º Métodos de Pesquisa</option>
                         </select>
                     </div>
                     <div class="table-responsive">
@@ -230,10 +230,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>João Silva</td>
-                                    <td>8.5</td>
+                                    <td>Jennyfer de paulo</td>
+                                    <td>6.5</td>
                                     <td>7.0</td>
-                                    <td>9.0</td>
+                                    <td>8.0</td>
                                     <td>8.2</td>
                                     <td>
                                         <button class="btn btn-secondary" onclick="editarNota('1')">
@@ -242,10 +242,10 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Maria Oliveira</td>
-                                    <td>6.0</td>
-                                    <td>7.5</td>
+                                    <td>Vinicius Santana</td>
                                     <td>8.0</td>
+                                    <td>7.5</td>
+                                    <td>8.3</td>
                                     <td>7.2</td>
                                     <td>
                                         <button class="btn btn-secondary" onclick="editarNota('2')">
@@ -272,9 +272,9 @@
                         <label class="form-label">Selecione a Turma:</label>
                         <select class="form-select" id="turma-frequencia">
                             <option value="">-- Selecione --</option>
-                            <option value="3A-PDM">3º Ano A - PDM</option>
-                            <option value="2B-BD">2º Ano B - Banco de Dados</option>
-                            <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                            <option value="3S-PDM"> TDS3º PDM</option>
+                            <option value="3S-BD"> TDS3º Banco de Dados</option>
+                            <option value="3S-MP"> TDS3º Métodos de Pesquisa</option>
                         </select>
                     </div>
                     <div class="form-group">
@@ -293,7 +293,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>João Silva</td>
+                                    <td>Jenyfer de Paulo</td>
                                     <td>
                                         <input type="checkbox" checked>
                                     </td>
@@ -305,7 +305,7 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Maria Oliveira</td>
+                                    <td>Vinicius Santana</td>
                                     <td>
                                         <input type="checkbox">
                                     </td>
@@ -357,7 +357,7 @@
                             <tbody>
                                 <tr>
                                     <td>10/11/2023</td>
-                                    <td>João Silva</td>
+                                    <td>Jennyfer de Paulo</td>
                                     <td>Precisa melhorar participação nas aulas</td>
                                     <td>
                                         <button class="btn btn-secondary">
@@ -367,7 +367,7 @@
                                 </tr>
                                 <tr>
                                     <td>05/11/2023</td>
-                                    <td>3º Ano A</td>
+                                    <td>Vinicius</td>
                                     <td>Turma com bom desempenho no trabalho em grupo</td>
                                     <td>
                                         <button class="btn btn-secondary">
@@ -394,18 +394,18 @@
                 <label class="form-label">Selecione a Turma:</label>
                 <select class="form-control" id="turma-nota">
                     <option value="">-- Selecione --</option>
-                    <option value="3A-PDM">3º Ano A - PDM</option>
-                    <option value="2B-BD">2º Ano B - Banco de Dados</option>
-                    <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                    <option value="3S-PDM">TDS3º PDM</option>
+                    <option value="#S-BD"> TDS3º Banco de Dados</option>
+                    <option value="#S-MP"> TDS3º  Métodos de Pesquisa</option>
                 </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Selecione o Aluno (ou deixe em branco para turma inteira):</label>
                 <select class="form-control" id="aluno-nota">
                     <option value="">-- Todos os Alunos --</option>
-                    <option value="1">João Silva</option>
-                    <option value="2">Maria Oliveira</option>
-                    <option value="3">Carlos Souza</option>
+                    <option value="1">Jenyfer de Paulo</option>
+                    <option value="2">Vinicius Santana</option>
+                    <option value="3">Kauã Santos</option>
                 </select>
             </div>
             <div class="form-group">
@@ -447,18 +447,18 @@
                 <label class="form-label">Selecione a Turma:</label>
                 <select class="form-control" id="turma-falta">
                     <option value="">-- Selecione --</option>
-                    <option value="3A-PDM">3º Ano A - PDM</option>
-                    <option value="2B-BD">2º Ano B - Banco de Dados</option>
-                    <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                    <option value="3S-PDM">TDS3º  - PDM</option>
+                    <option value="#S-BD">TDS3º  - Banco de Dados</option>
+                    <option value="3S-MP"> TDS3º  - Métodos de Pesquisa</option>
                 </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Selecione o Aluno (ou deixe em branco para turma inteira):</label>
                 <select class="form-control" id="aluno-falta">
                     <option value="">-- Todos os Alunos --</option>
-                    <option value="1">João Silva</option>
-                    <option value="2">Maria Oliveira</option>
-                    <option value="3">Carlos Souza</option>
+                    <option value="1">Jennyfer de Paulo</option>
+                    <option value="2">Vinicius Santana </option>
+                    <option value="3">Kaua Santos </option>
                 </select>
             </div>
             <div class="form-group">
@@ -487,18 +487,18 @@
                 <label class="form-label">Selecione a Turma:</label>
                 <select class="form-control" id="turma-observacao">
                     <option value="">-- Selecione --</option>
-                    <option value="3A-PDM">3º Ano A - PDM</option>
-                    <option value="2B-BD">2º Ano B - Banco de Dados</option>
-                    <option value="4A-MP">4º Ano A - Métodos de Pesquisa</option>
+                    <option value="3S-PDM"> TDS3º PDM</option>
+                    <option value="3S-BD"> TDS3º Banco de Dados</option>
+                    <option value="3S-MP"> TDS3º Métodos de Pesquisa</option>
                 </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Selecione o Aluno (ou deixe em branco para turma inteira):</label>
                 <select class="form-control" id="aluno-observacao">
                     <option value="">-- Todos os Alunos --</option>
-                    <option value="1">João Silva</option>
-                    <option value="2">Maria Oliveira</option>
-                    <option value="3">Carlos Souza</option>
+                    <option value="1">Jenyferde paulo</option>
+                    <option value="2">Vinicius Santana</option>
+                    <option value="3">Kaua Santos</option>
                 </select>
             </div>
             <div class="form-group">
